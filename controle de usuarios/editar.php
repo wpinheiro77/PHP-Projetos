@@ -1,50 +1,46 @@
-<?php
-  include 'header.php';
+<?php require_once 'assets/vendors/header.php';
+      require_once 'assets/vendors/session.php';
 
 $id = 0;
-if(isset($_GET['id']) && !empty($_GET['id'])){
-  $id = addslashes($_GET['id']);
+if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
+  $id = addslashes($_GET['user_id']);
 }
 
-if(isset($_POST['nome']) && !empty($_POST['nome'])) {
-  $nome = addslashes($_POST['nome']);
-  $email = addslashes($_POST['email']);
+if(isset($_POST['user_nome']) && !empty($_POST['user_nome'])){
+  $nome = addslashes($_POST['user_nome']);
+  $email = addslashes($_POST['user_email']);
 
-  $sql = "UPDATE users SET nome = '$nome' , email = '$email' WHERE id = '$id' ";
-  $pdo->query($sql);
+  $sql = "UPDATE usuarios SET user_nome = '$nome', user_email = '$email' WHERE user_id = '$id'";
+  $sql = $pdo->query($sql);
 
-  header("Location: index.php");
+  echo "<script>location.href='index.php';</script>";
 }
-
-$sql = "SELECT * FROM users WHERE id = '$id' ";
-$sql = $pdo->query($sql);
-if($sql->rowCount() > 0 ){
-  $dado = $sql->fetch();
-}else {
-  header("Location: index.php");
-}
+  $slq = "SELECT * FROM usuarios WHERE user_id = '$id'";
+  $sql = $pdo->query($slq);
+  if($sql->rowCount() > 0){
+    $dado = $sql->fetch();
+  } else {
+    echo "<script>location.href='index.php';</script>";
+  }
 ?>
 
+<div class="main container-fluid">
+  <div class="container">
+    <h1>Alterar Cadastro</h1>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-4">
-			<form role="form" method="POST">
-				<div class="form-group">
-          <h2>Alterar Cadastro</h2>
-					<label for="">
-            Nome:
-					</label>
-					<input type="text" class="form-control" name="nome" value="<?php echo $dado['nome']; ?>" />
-        </div>
-        <div class="form-group">
-					<label>
-						E-mail:
-					</label>
-					<input type="email" class="form-control" name="email" value="<?php echo $dado['email']; ?>" />
-				</div>
-				<input type="submit" class="btn btn-primary" value="Atualizar" />
-			</form>
-		</div>
-	</div>
+    <form action="" method="POST">
+      <div class="form-group">
+        <label for="user_nome">Nome: </label>
+        <input type="text" class="form-control" name="user_nome" placeholder="Digite o seu nome..." value="<?php echo $dado['user_nome']; ?>">
+      </div>
+      <div class="form-group">
+        <label for="user_email">E-mail: </label>
+        <input type="email" class="form-control" name="user_email" placeholder="Digite o seu e-mail..." value="<?php echo $dado['user_email']; ?>">
+      </div>
+      <button type="submit" class="btn btn-primary">ATUALIZAR</button>
+    </form>
+
+  </div>
 </div>
+
+<?php require_once 'assets/vendors/footer.php'; ?>

@@ -1,0 +1,144 @@
+<?php require_once('header.php'); ?>
+<?php require_once('conecta.php');
+?>
+<?php
+	if(!isset($_SESSION["user_portal"])){
+		session_start();
+	}
+?>
+
+
+	<!-- navbar -->
+	<?php require_once('navbar.php'); ?>
+	<!-- end navbar -->
+
+	<!-- panel control left -->
+	<div class="panel-control-left">
+		<ul id="slide-out-left" class="side-nav collapsible" data-collapsible="accordion" style="transform: translateX(-100%);">
+			<li class="author">
+				<img src="assets/img/author.png" alt="">
+				<div class="desc">
+					<h5>William Pinheiro</h5>
+					<span>Front End</span>
+				</div>
+			</li>
+			<li>
+				<a href="index.html"><i class="fa fa-home"></i>Home</a>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-sign-in-alt"></i>Login</a>
+			</li>
+			<li>
+				<a href="#"><i class="fa fa-user-plus"></i>Cadastrar-se</a>
+			</li>
+			<li>
+					<a href="#"><i class="fas fa-edit"></i>Solicitação</a>
+			</li>
+			<li>
+				<a href="01.php"><i class="fas fa-search"></i>Consultar Protocolo</a>
+			</li>
+		</ul>
+	</div>
+	<!-- end panel control left -->
+
+
+	<!-- main -->
+	<div class="container main-content">
+			<div class="row main align-items-center">
+				<div class="col-md-3 l1 bg shadow">
+					<a href="#">
+					Coordenação TI
+						<br /><br />
+					<i class="fas fa-3x fa-desktop"></i>
+					</a>
+				</div>
+
+				<div class="col-md-3 l2 bg shadow">
+					<a href="#">
+					Coordenação Manutenção
+					<i class="fas fa-3x fa-screwdriver"></i>
+					</a>
+				</div>
+
+				<div class="col-md-3 l4 bg shadow">
+					<a href="#">
+					Coordenação G. Empresarial
+					<i class="fas fa-3x fa-user-tie"></i>
+					</a>
+				</div>
+
+				<div class="col-md-3  l5 bg shadow">
+					<a href="#">
+					Coordenação Automação
+					<i class="fas fa-3x fa-microchip"></i>
+					</a>
+				</div>
+
+				<div class="w-100"></div>
+
+				<div class="col-md-3 l6 bg shadow">
+					<a href="#">
+					Coordenação Produção F.
+					<i class="fas fa-3x fa-music"></i>
+					</a>
+				</div>
+
+				<div class="col-md-3  l7 bg shadow">
+					<a href="#">
+					Secretaria
+					<br/><br/>
+					<i class="fas fa-3x fa-graduation-cap"></i>
+					</a>
+				</div>
+
+				<div class="col-md-3  l8 bg shadow">
+					<a href="#">
+					Infraestrutura
+					<br/><br/>
+					<i class="fas fa-3x fa-building"></i>
+					</a>
+				</div>
+
+				<div class="col-md-3  l9 bg shadow">
+					<a href="#">
+					Demais Setores
+					<br /><br />
+					<i class="fas fa-3x fa-sitemap"></i>
+					</a>
+	</div>
+	<!-- end main -->
+
+	<!-- footer -->
+	<footer class="fixed-bottom">
+		<div class="container">
+			<h6>Nos siga nas redes sociais</h6>
+			<ul class="icon-social">
+				<li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li class="google"><a href="#"><i class="fab fa-google"></i></a></li>
+				<li class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li class="rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+			</ul>
+			<div class="ft-bottom">
+				<span>© Copyright <strong><a href="http://www.w2csystem.com.br/" target="_blank">W2C System</a></strong> Todos os direitos Reservados | 2018 </span>
+			</div>
+		</div>
+	</footer>
+	<!-- end footer -->
+
+	<!-- footer-mobile -->
+	<div class="fixed-bottom footer-mobile">
+			<div class="container">
+				<div class="ft-bottom">
+					<span>© Copyright <strong><a href="http://www.w2csystem.com.br/" target="_blank">W2C System</a></strong> | 2018 </span>
+				</div>
+			</div>
+		</div>
+	<!-- end-footer-mobile -->
+
+	<!-- script -->
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/materialize.min.js"></script>
+	<script src="assets/js/custom.js"></script>
+</body></html>

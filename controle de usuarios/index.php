@@ -1,31 +1,49 @@
-<?php require 'header.php'; ?>
-  <br>
-  <a class="btn btn-primary inserir fun" role="button" href="adiciona.php">Inserir Novo Usuário</a>
-  <br><br>
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Email</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
+<?php require_once 'assets/vendors/header.php';
+      require_once 'assets/vendors/session.php';
+?>
 
-    <?php
-      $sql = "SELECT * FROM users";
-      $sql = $pdo->query($sql);
-      if($sql->rowCount() > 0){
-        foreach($sql->fetchAll() as $usuario){
-          echo "<tbody>";
-          echo'<tr>';
-          echo'<td >'.$usuario['nome'].'</td>';
-          echo'<td >'.$usuario['email'].'</td>';
-          echo'<td><a class="btn btn-primary fun" href="editar.php?id='.$usuario['id'].'">Editar</a> - <a class="btn btn-danger fun" href="excluir.php?id='.$usuario['id'].'">Exluir</a></td>';
-          echo "</tbody>";
-          echo'</tr>';
-        }
+<div class="container-fluid">
+  <div class="container">
+    <form action="">
+      
+    </form>
+    <table class="table table-striped table-hover tabela">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- PEGANDO USERS DA TABELA -->
+          <?php
+    $sql = "SELECT * FROM usuarios";
+    $sql = $pdo->query($sql);
+
+    if($sql->rowCount() >0){
+      foreach($sql->fetchAll() as $usuarios){
+        echo '<td>'. $usuarios["user_nome"] .'</td>';
+        echo '<td>'. $usuarios["user_email"] .'</td>';
+        echo '<td><a href="editar.php?user_id='.$usuarios['user_id'].'">Editar</a> - <a href="excluir.php?user_id='.$usuarios['user_id'].'">Excluir</a> </td>';
+        echo '<tr/>';
       }
-    ?>
-  </table>
-</body>
-</html>
+    } else {
+        echo '<div class="erro-usuarios alert-danger">';
+        echo 'Não há usuários cadastrados...';
+        echo '</div>';
+    }
+  ?>
+      </tbody>
+    </table>
+
+    <div class="edita container-fluid">
+      <div class="container">
+        <a href="cadastrar.php">Cadastrar Usuários</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php require_once 'assets/vendors/footer.php'; ?>
