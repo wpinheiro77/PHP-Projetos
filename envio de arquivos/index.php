@@ -5,7 +5,7 @@ if(isset($_GET['ordem']) && !empty($_GET['ordem'])){ #verifica se ordem foi envi
   $sql = "SELECT * FROM usuarios ORDER BY ".$ordem; #faz a busca baseado no que foi selecionado no select e jogado na $ordem
 } else {
   $ordem = ""; #deixa aqui para que seja mostrado o item selecionado no select e ele não fique vazio
-  $sql = "SELECT * FROM usuarios"; #faz a listagem sem critérios por default ao carregar a página
+  $sql = "SELECT * FROM usuarios ORDER BY usuarios"; #faz a listagem sem critérios por default ao carregar a página
 }
 ?>
 
@@ -13,9 +13,9 @@ if(isset($_GET['ordem']) && !empty($_GET['ordem'])){ #verifica se ordem foi envi
 <form method="GET" class="form-group container">
   <select name="ordem" onchange="this.form.submit()"> <!-- Faz o submit na própria página -->
     <option value=""></option>
-    <option value="user_nome" <?php echo($ordem=="user_nome")?'selected="selected"':''; ?>>Nome</option> <!-- Se $ordem = user_nome -> mostra o selecionado, se não, mostra vazio -->
-    <option value="user_email" <?php echo($ordem=="user_email")?'selected="selected"':''; ?>>Email</option>
-    <option value="user_idade" <?php echo($ordem=="user_idade")?'selected="selected"':''; ?>>Idade</option>
+    <option value="user_nome" <?php echo($ordem=="user_nome")?'selected="selected"':'' ?>>Nome</option> <!-- Se $ordem = user_nome -> mostra o selecionado, se não, mostra vazio -->
+    <option value="user_email" <?php echo($ordem=="user_email")?'selected="selected"':'' ?>>Email</option>
+    <option value="user_idade" <?php echo($ordem=="user_idade")?'selected="selected"':'' ?>>Idade</option>
   </select>
 </form>
 
